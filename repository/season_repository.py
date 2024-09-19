@@ -43,3 +43,13 @@ def get_all_seasons():
             res = cu.fetchall()
             seasons = [Season(**s) for s in res]
             return seasons
+
+
+def get_season_by_year(year):
+    with get_db_connection() as dbc:
+        with dbc.cursor() as cu:
+            cu.execute("SELECT * FROM seasons WHERE season = %s", (year,))
+            res = cu.fetchall()
+            seasons = [Season(**s) for s in res]
+            return seasons
+
