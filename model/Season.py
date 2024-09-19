@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass
 class Season:
    player_id: str
-   team: str
+   team_name: str
    position: str
    season: int
    points: int

@@ -11,10 +11,10 @@ def create_player(player):
     with get_db_connection() as dbc:
         with dbc.cursor() as cu:
             cu.execute("""
-                INSERT INTO players (name, id)
-                VALUES (%s, %s) RETURNING id
+                INSERT INTO players (name, player_id)
+                VALUES (%s, %s) RETURNING player_id
             """, (player.name, player.player_id))
-            res = cu.fetchone()['id']
+            res = cu.fetchone()['player_id']
             dbc.commit()
             return res
 

@@ -7,3 +7,5 @@ def get_seasons(url):
         return response.json()
     except Exception as e:
         print(f"Error {e}")
+
+
